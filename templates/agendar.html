@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Novo Agendamento</h2>
+
+<form method="POST">
+
+<select name="cliente">
+
+{% for c in clientes %}
+<option value="{{ c[0] }}">{{ c[0] }}</option>
+{% endfor %}
+
+</select>
+
+<select name="servico">
+
+{% for s in servicos %}
+<option value="{{ s[0] }}">{{ s[0] }}</option>
+{% endfor %}
+
+</select>
+
+<input type="date" name="data">
+<input type="time" name="hora">
+
+<button type="submit">Agendar</button>
+
+</form>
+
+{% endblock %}

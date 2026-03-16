@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Serviços</h2>
+
+<form method="POST">
+
+<input name="nome" placeholder="Nome do serviço">
+<input type="number" step="0.01" name="valor" placeholder="Valor do serviço">
+
+<button type="submit">Cadastrar</button>
+
+</form>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Nome</th>
+<th>Valor</th>
+</tr>
+
+{% for s in servicos %}
+
+<tr>
+<td>{{ s[0] }}</td>
+<td>{{ s[1] }}</td>
+<td>R$ {{ s[2] }}</td>
+<td>
+<a href="/excluir_servico/{{ s[0] }}">Excluir</a>
+</td>
+</tr>
+
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Clientes</h2>
+
+<form method="POST">
+
+<input name="nome" placeholder="Nome">
+<input name="telefone" placeholder="Telefone">
+<input name="email" placeholder="Email">
+
+<button type="submit">Cadastrar</button>
+
+</form>
+
+<table>
+
+<tr>
+<th>ID</th>
+<th>Nome</th>
+<th>Telefone</th>
+<th>Email</th>
+</tr>
+
+{% for c in clientes %}
+<th>Ações</th>
+<tr>
+<td>{{ c[0] }}</td>
+<td>{{ c[1] }}</td>
+<td>{{ c[2] }}</td>
+<td>{{ c[3] }}</td>
+<td>
+<a href="/excluir_cliente/{{ c[0] }}">Excluir</a>
+</td>
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}

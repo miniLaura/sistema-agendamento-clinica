@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Dashboard</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>{{ total_clientes }}</h3>
+<p>Clientes cadastrados</p>
+</div>
+
+<div class="card">
+<h3>{{ total_servicos }}</h3>
+<p>Serviços cadastrados</p>
+</div>
+
+<div class="card">
+<h3>{{ total_agendamentos }}</h3>
+<p>Agendamentos</p>
+</div>
+
+<div class="card">
+<h3>R$ {{ faturamento }}</h3>
+<p>Faturamento</p>
+</div>
+
+</div>
+
+<h2>Agenda de Atendimentos</h2>
+
+<table>
+
+<tr>
+<th>Cliente</th>
+<th>Serviço</th>
+<th>Data</th>
+<th>Hora</th>
+</tr>
+
+{% for a in agendamentos %}
+<th>Ações</th>
+<td>
+<a href="/excluir_agendamento/{{ a[0] }}">Excluir</a>
+</td>
+<tr>
+<td>{{ a[0] }}</td>
+<td>{{ a[1] }}</td>
+<td>{{ a[2] }}</td>
+<td>{{ a[3] }}</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+{% endblock %}
